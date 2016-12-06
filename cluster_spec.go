@@ -2,7 +2,7 @@ package clusterspec
 
 type ClusterSpec struct {
 	Customer  string `json:"customer"`
-	ClusterID string `json:"clusterId"`
+	ClusterId string `json:"clusterId"`
 
 	K8sVmVersion string `json:"k8sVmVersion"`
 
@@ -18,7 +18,7 @@ type ClusterSpec struct {
 
 type FlannelConfiguration struct {
 	Version        string `json:"version"`
-	ClusterVNI     int32  `json:"clusterVNI,omitempty"`
+	ClusterVni     int32  `json:"clusterVni,omitempty"`
 	ClusterBackend string `json:"clusterBackend"`
 	ClusterNetwork string `json:"clusterNetwork"`
 }
@@ -36,7 +36,7 @@ type IngressController struct {
 
 type Certificates struct {
 	VaultToken        string `json:"vaulToken"`
-	APIaltNames       string `json:"apiAltNames"`
+	ApiAltNames       string `json:"apiAltNames"`
 	MasterServiceName string `json:"masterServiceName"`
 }
 
@@ -49,7 +49,7 @@ type Machine struct {
 
 type Capabilities struct {
 	Memory   string `json:"memory"`
-	CPUcores int32  `json:"cpuCores"`
+	CpuCores int32  `json:"cpuCores"`
 }
 
 type Worker struct {
@@ -71,7 +71,7 @@ type Master struct {
 
 type Kubernetes struct {
 	Domain           string `json:"domain"`
-	ETCDdomainName   string `json:"etcdDomainName"`
+	EtcdDomainName   string `json:"etcdDomainName"`
 	MasterDomainName string `json:"masterDomainName"`
 	ClusterIpRange   string `json:"clusterIpRange"`
 	ClusterIpSubnet  string `json:"clusterIpSubnet"`
