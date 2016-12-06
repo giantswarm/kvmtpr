@@ -14,6 +14,20 @@ type ClusterSpec struct {
 	Master Master `json:"master"`
 
 	IngressController IngressController `json:"ingressController"`
+
+	GiantnetesConfiguration GiantnetesConfiguration `json:"giantnetesConfiguration"`
+
+	KubernetesConfig Kubernetes `json:"kubernetesConfiguration"`
+}
+
+type GiantnetesConfiguration struct {
+	EtcdPort         string `json:"etcdPort"`
+	NetworkInterface string `json:"networkInterface"`
+	HostSubnetRange  string `json:"hostSubnetRange"`
+	DnsIp            string `json:"dnsIp"`
+	ApiIp            string `json:"apiIp"`
+	Domain           string `json:"domain"`
+	VaultAddr        string `json:"vaultAddr"`
 }
 
 type FlannelConfiguration struct {
@@ -44,7 +58,7 @@ type Machine struct {
 	Registry            string       `json:"registry"`
 	Capabilities        Capabilities `json:"capabilities"`
 	NetworkSetupVersion string       `json:"networkSetupVersion"`
-	KubernetesConfig    Kubernetes   `json:"kubernetes"`
+	DockerExtraArgs     string       `json:"dockerExtraArgs,omitempty"`
 }
 
 type Capabilities struct {
@@ -54,12 +68,14 @@ type Capabilities struct {
 
 type Worker struct {
 	Machine
-	Replicas int32 `json:"workerReplicas,omitempty"`
+	Replicas int32 `json:"replicas,omitempty"`
 
-	DockerExtraArgs   string `json:"dockerExtraArgs,omitempty"`
 	K8sCalicoMtu      string `json:"k8sCalicoMtu"`
 	NodeLabels        string `json:"nodeLabels,omitempty"`
 	WorkerServicePort string `json:"workerServicePort"`
+
+	MasterPort string `json:"masterPort"`
+	Kubernetes
 }
 
 type Master struct {
@@ -67,15 +83,16 @@ type Master struct {
 
 	CalicoSubnet string `json:"calicoSubnet"`
 	CalicoCidr   string `json:"calicoCidr"`
+
+	ClusterIpRange  string `json:"clusterIpRange"`
+	ClusterIpSubnet string `json:"clusterIpSubnet"`
+	Kubernetes
 }
 
 type Kubernetes struct {
 	Domain           string `json:"domain"`
 	EtcdDomainName   string `json:"etcdDomainName"`
 	MasterDomainName string `json:"masterDomainName"`
-	ClusterIpRange   string `json:"clusterIpRange"`
-	ClusterIpSubnet  string `json:"clusterIpSubnet"`
-	MasterPort       string `json:"masterPort"`
 	DnsIp            string `json:"dnsIp"`
 	InsecurePort     string `json:"insecurePort"`
 	SecurePort       string `json:"securePort"`
