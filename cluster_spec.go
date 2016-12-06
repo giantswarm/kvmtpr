@@ -1,20 +1,26 @@
 package clusterspec
 
 type ClusterSpec struct {
-	Customer       string `json:"customer"`
-	ClusterID      string `json:"clusterId"`
-	WorkerReplicas int32  `json:"workerReplicas,omitempty"`
+	Customer  string `json:"customer"`
+	ClusterID string `json:"clusterId"`
 
 	K8sVmVersion string `json:"k8sVmVersion"`
 
-	FlannelClientVersion string `json:"flannelClientVersion"`
-	ClusterVNI           int32  `json:"clusterVNI,omitempty"`
-	ClusterBackend       string `json:"clusterBackend"`
-	ClusterNetwork       string `json:"clusterNetwork"`
+	FlannelConfiguration FlannelConfiguration `json::"flannelConfiguration"`
 
-	Machine Machine `json:"machine"`
+	Certificates Certificates `json:"certificates"`
+
+	Worker Worker `json:"worker"`
+	Master Master `json:"master"`
 
 	IngressController IngressController `json:"ingressController"`
+}
+
+type FlannelConfiguration struct {
+	Version        string `json:"version"`
+	ClusterVNI     int32  `json:"clusterVNI,omitempty"`
+	ClusterBackend string `json:"clusterBackend"`
+	ClusterNetwork string `json:"clusterNetwork"`
 }
 
 type IngressController struct {
@@ -28,40 +34,49 @@ type IngressController struct {
 	CloudflareDomain      string `json:"cloudflareDomain"`
 }
 
-type Machine struct {
-	Registry string `json:"registry"`
-
-	CalicoSubnet string `json:"calicoSubnet"`
-	CalicoCidr   string `json:"calicoCidr"`
-	K8sCalicoMtu string `json:"k8sCalicoMtu"`
-
-	Certificates Certificates `json:"certificates"`
-
-	MachineMem      string `json:"machineMem"`
-	MachineCPUcores int32  `json:"machineCPUcores"`
-
-	DockerExtraArgs     string `json:"dockerExtraArgs,omitempty"`
-	NetworkSetupVersion string `json:"networkSetupVersion"`
-
-	KubernetesConfig Kubernetes `json:"kubernetes"`
-}
-
 type Certificates struct {
 	VaultToken        string `json:"vaulToken"`
 	APIaltNames       string `json:"apiAltNames"`
 	MasterServiceName string `json:"masterServiceName"`
 }
 
-type Kubernetes struct {
-	Domain            string `json:"domain"`
-	ETCDdomainName    string `json:"etcdDomainName"`
-	MasterDomainName  string `json:"masterDomainName"`
+type Machine struct {
+	Registry            string       `json:"registry"`
+	Capabilities        Capabilities `json:"capabilities"`
+	NetworkSetupVersion string       `json:"networkSetupVersion"`
+	KubernetesConfig    Kubernetes   `json:"kubernetes"`
+}
+
+type Capabilities struct {
+	Memory   string `json:"memory"`
+	CPUcores int32  `json:"cpuCores"`
+}
+
+type Worker struct {
+	Machine
+	Replicas int32 `json:"workerReplicas,omitempty"`
+
+	DockerExtraArgs   string `json:"dockerExtraArgs,omitempty"`
+	K8sCalicoMtu      string `json:"k8sCalicoMtu"`
 	NodeLabels        string `json:"nodeLabels,omitempty"`
-	ClusterIpRange    string `json:"clusterIpRange"`
-	ClusterIpSubnet   string `json:"clusterIpSubnet"`
-	MasterPort        string `json:"masterPort"`
-	DnsIp             string `json:"dnsIp"`
-	InsecurePort      string `json:"insecurePort"`
-	SecurePort        string `json:"securePort"`
 	WorkerServicePort string `json:"workerServicePort"`
+}
+
+type Master struct {
+	Machine
+
+	CalicoSubnet string `json:"calicoSubnet"`
+	CalicoCidr   string `json:"calicoCidr"`
+}
+
+type Kubernetes struct {
+	Domain           string `json:"domain"`
+	ETCDdomainName   string `json:"etcdDomainName"`
+	MasterDomainName string `json:"masterDomainName"`
+	ClusterIpRange   string `json:"clusterIpRange"`
+	ClusterIpSubnet  string `json:"clusterIpSubnet"`
+	MasterPort       string `json:"masterPort"`
+	DnsIp            string `json:"dnsIp"`
+	InsecurePort     string `json:"insecurePort"`
+	SecurePort       string `json:"securePort"`
 }
