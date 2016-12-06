@@ -16,8 +16,6 @@ type ClusterSpec struct {
 	IngressController IngressController `json:"ingressController"`
 
 	GiantnetesConfiguration GiantnetesConfiguration `json:"giantnetesConfiguration"`
-
-	KubernetesConfig Kubernetes `json:"kubernetesConfiguration"`
 }
 
 type GiantnetesConfiguration struct {
