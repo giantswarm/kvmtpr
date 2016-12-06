@@ -35,7 +35,7 @@ type IngressController struct {
 }
 
 type Certificates struct {
-	VaultToken        string `json:"vaulToken"`
+	VaultToken        string `json:"vaultToken"`
 	ApiAltNames       string `json:"apiAltNames"`
 	MasterServiceName string `json:"masterServiceName"`
 }
