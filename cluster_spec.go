@@ -4,11 +4,11 @@ type ClusterSpec struct {
 	Customer  string `json:"customer"`
 	ClusterId string `json:"clusterId"`
 
-	K8sVmVersion   string `json:"k8sVmVersion"`
-	CertctlVersion string `json:"certctlVersion"`
-	KubectlVersion string `json:"kubectlVersion"`
-	PingVersion    string `json:"pingVersion"`
-	HaproxyEtcdLbVersion  string `json:"haproxyEtcdLbVersion"`
+	K8sVmVersion         string `json:"k8sVmVersion"`
+	CertctlVersion       string `json:"certctlVersion"`
+	KubectlVersion       string `json:"kubectlVersion"`
+	PingVersion          string `json:"pingVersion"`
+	HaproxyEtcdLbVersion string `json:"haproxyEtcdLbVersion"`
 
 	FlannelConfiguration FlannelConfiguration `json::"flannelConfiguration"`
 
