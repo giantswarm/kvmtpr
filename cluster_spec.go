@@ -4,7 +4,11 @@ type ClusterSpec struct {
 	Customer  string `json:"customer"`
 	ClusterId string `json:"clusterId"`
 
-	K8sVmVersion string `json:"k8sVmVersion"`
+	K8sVmVersion   string `json:"k8sVmVersion"`
+	CertctlVersion string `json:"certctlVersion"`
+	KubectlVersion string `json:"kubectlVersion"`
+	PingVersion    string `json:"pingVersion"`
+	HaproxyEtcdLbVersion  string `json:"haproxyEtcdLbVersion"`
 
 	FlannelConfiguration FlannelConfiguration `json::"flannelConfiguration"`
 
@@ -41,9 +45,14 @@ type IngressController struct {
 	KempVsPorts           string `json:"kempVsPorts"`
 	KempVsSslAcceleration string `json:"kempVsSslAcceleration"`
 	KempRsPort            string `json:"kempRsPort"`
+	KempUser              string `json:"kempUser"`
+	KempEndpoint          string `json:"kempEndpoint"`
+	KempPassword          string `json:"kempPassword"`
 	KempVsCheckPort       string `json:"kempVsCheckPort"`
 	CloudflareIp          string `json:"cloudflareIp"`
 	CloudflareDomain      string `json:"cloudflareDomain"`
+	CloudflareToken       string `json:"cloudflareToken"`
+	CloudflareEmail       string `json:"cloudflareEmail"`
 }
 
 type Certificates struct {
