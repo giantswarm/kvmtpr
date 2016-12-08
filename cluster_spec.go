@@ -4,11 +4,12 @@ type ClusterSpec struct {
 	Customer  string `json:"customer"`
 	ClusterId string `json:"clusterId"`
 
-	K8sVmVersion         string `json:"k8sVmVersion"`
-	CertctlVersion       string `json:"certctlVersion"`
-	KubectlVersion       string `json:"kubectlVersion"`
-	PingVersion          string `json:"pingVersion"`
-	HaproxyEtcdLbVersion string `json:"haproxyEtcdLbVersion"`
+	K8sVmVersion             string `json:"k8sVmVersion"`
+	CertctlVersion           string `json:"certctlVersion"`
+	PingVersion              string `json:"pingVersion"`
+	IngressControllerVersion string `json:"ingressControllerVersion"`
+	// Kubectl is used in the master/worker to allow dynamic updates creating configmaps
+	KubectlVersion string `json:"kubectlVersion"`
 
 	FlannelConfiguration FlannelConfiguration `json::"flannelConfiguration"`
 
