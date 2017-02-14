@@ -1,17 +1,17 @@
 package kvmtpr
 
 import (
-	"github.com/giantswarm/clusterspec/spec/calico"
-	"github.com/giantswarm/clusterspec/spec/cloudflare"
-	"github.com/giantswarm/clusterspec/spec/cluster"
-	"github.com/giantswarm/clusterspec/spec/customer"
-	"github.com/giantswarm/clusterspec/spec/docker"
-	"github.com/giantswarm/clusterspec/spec/etcd"
-	"github.com/giantswarm/clusterspec/spec/flannel"
-	"github.com/giantswarm/clusterspec/spec/kubernetes"
-	"github.com/giantswarm/clusterspec/spec/node"
-	"github.com/giantswarm/clusterspec/spec/operator"
-	"github.com/giantswarm/clusterspec/spec/vault"
+	"github.com/giantswarm/kvmtpr/spec/calico"
+	"github.com/giantswarm/kvmtpr/spec/cloudflare"
+	"github.com/giantswarm/kvmtpr/spec/cluster"
+	"github.com/giantswarm/kvmtpr/spec/customer"
+	"github.com/giantswarm/kvmtpr/spec/docker"
+	"github.com/giantswarm/kvmtpr/spec/etcd"
+	"github.com/giantswarm/kvmtpr/spec/flannel"
+	"github.com/giantswarm/kvmtpr/spec/kubernetes"
+	"github.com/giantswarm/kvmtpr/spec/node"
+	"github.com/giantswarm/kvmtpr/spec/operator"
+	"github.com/giantswarm/kvmtpr/spec/vault"
 )
 
 type Spec struct {
