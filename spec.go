@@ -1,114 +1,30 @@
 package kvmtpr
 
 import (
+	"github.com/giantswarm/clusterspec/spec/calico"
+	"github.com/giantswarm/clusterspec/spec/cloudflare"
 	"github.com/giantswarm/clusterspec/spec/cluster"
 	"github.com/giantswarm/clusterspec/spec/customer"
+	"github.com/giantswarm/clusterspec/spec/docker"
+	"github.com/giantswarm/clusterspec/spec/etcd"
+	"github.com/giantswarm/clusterspec/spec/flannel"
 	"github.com/giantswarm/clusterspec/spec/kubernetes"
+	"github.com/giantswarm/clusterspec/spec/node"
+	"github.com/giantswarm/clusterspec/spec/operator"
+	"github.com/giantswarm/clusterspec/spec/vault"
 )
 
 type Spec struct {
+	Calico     calico.Calico         `json:"calico"`
+	Cloudflare cloudflare.Cloudflare `json:"cloudflare"`
 	Cluster    cluster.Cluster       `json:"cluster"`
 	Customer   customer.Customer     `json:"customer"`
+	Docker     docker.Docker         `json:"docker"`
+	Etcd       etcd.Etcd             `json:"etcd"`
+	Flannel    flannel.Flannel       `json:"flannel"`
 	Kubernetes kubernetes.Kubernetes `json:"kubernetes"`
-
-	CertctlVersion           string `json:"certctlVersion"`
-	PingVersion              string `json:"pingVersion"`
-	IngressControllerVersion string `json:"ingressControllerVersion"`
-	// Kubectl is used in the master/worker to allow dynamic updates creating configmaps
-	KubectlVersion string `json:"kubectlVersion"`
-
-	FlannelConfiguration FlannelConfiguration `json::"flannelConfiguration"`
-
-	Certificates Certificates `json:"certificates"`
-
-	Worker Worker `json:"worker"`
-	Master Master `json:"master"`
-
-	IngressController IngressController `json:"ingressController"`
-
-	GiantnetesConfiguration GiantnetesConfiguration `json:"giantnetesConfiguration"`
-}
-
-type GiantnetesConfiguration struct {
-	EtcdPort         string `json:"etcdPort"`
-	NetworkInterface string `json:"networkInterface"`
-	HostSubnetRange  string `json:"hostSubnetRange"`
-	DnsIp            string `json:"dnsIp"`
-	ApiIp            string `json:"apiIp"`
-	Domain           string `json:"domain"`
-	VaultAddr        string `json:"vaultAddr"`
-	CloudflareDomain string `json:"cloudflareDomain"`
-}
-
-type FlannelConfiguration struct {
-	Version        string `json:"version"`
-	ClusterVni     int32  `json:"clusterVni,omitempty"`
-	ClusterBackend string `json:"clusterBackend"`
-	ClusterNetwork string `json:"clusterNetwork"`
-}
-
-type IngressController struct {
-	KempVsIp              string `json:"kempVsIp"`
-	KempVsName            string `json:"kempVsName"`
-	KempVsPorts           string `json:"kempVsPorts"`
-	KempVsSslAcceleration string `json:"kempVsSslAcceleration"`
-	KempRsPort            string `json:"kempRsPort"`
-	KempUser              string `json:"kempUser"`
-	KempEndpoint          string `json:"kempEndpoint"`
-	KempPassword          string `json:"kempPassword"`
-	KempVsCheckPort       string `json:"kempVsCheckPort"`
-	CloudflareIp          string `json:"cloudflareIp"`
-	CloudflareDomain      string `json:"cloudflareDomain"`
-	CloudflareToken       string `json:"cloudflareToken"`
-	CloudflareEmail       string `json:"cloudflareEmail"`
-}
-
-type Certificates struct {
-	VaultToken        string `json:"vaultToken"`
-	ApiAltNames       string `json:"apiAltNames"`
-	MasterServiceName string `json:"masterServiceName"`
-}
-
-type Machine struct {
-	Registry            string       `json:"registry"`
-	Capabilities        Capabilities `json:"capabilities"`
-	NetworkSetupVersion string       `json:"networkSetupVersion"`
-	DockerExtraArgs     string       `json:"dockerExtraArgs,omitempty"`
-}
-
-type Capabilities struct {
-	Memory   string `json:"memory"`
-	CpuCores int32  `json:"cpuCores"`
-}
-
-type Worker struct {
-	Machine
-	Replicas int32 `json:"replicas,omitempty"`
-
-	K8sCalicoMtu      string `json:"k8sCalicoMtu"`
-	NodeLabels        string `json:"nodeLabels,omitempty"`
-	WorkerServicePort string `json:"workerServicePort"`
-
-	MasterPort string `json:"masterPort"`
-	Kubernetes
-}
-
-type Master struct {
-	Machine
-
-	CalicoSubnet string `json:"calicoSubnet"`
-	CalicoCidr   string `json:"calicoCidr"`
-
-	ClusterIpRange  string `json:"clusterIpRange"`
-	ClusterIpSubnet string `json:"clusterIpSubnet"`
-	Kubernetes
-}
-
-type Kubernetes struct {
-	Domain           string `json:"domain"`
-	EtcdDomainName   string `json:"etcdDomainName"`
-	MasterDomainName string `json:"masterDomainName"`
-	DnsIp            string `json:"dnsIp"`
-	InsecurePort     string `json:"insecurePort"`
-	SecurePort       string `json:"securePort"`
+	Masters    []node.Node           `json:"masters"`
+	Operator   operator.Operator     `json:"operator"`
+	Vault      vault.Vault           `json:"vault"`
+	Workers    []node.Node           `json:"workers"`
 }

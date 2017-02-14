@@ -1,6 +1,11 @@
 package kubernetes
 
 type Kubernetes struct {
-	HyperkubeVersion string `json:"HyperkubeVersion"`
-	K8sVmVersion     string `json:"k8sVmVersion"`
+	API API `json:"api"`
+	DNS DNS `json:"dns"`
+	// Domain is the base domain of the Kubernetes cluster, e.g.
+	// g8s.fra-1.giantswarm.io.
+	Domain    string    `json:"domain"`
+	Hyperkube Hyperkube `json:"hyperkube"`
+	Kubelet   Kubelet   `json:"kubelet"`
 }
