@@ -1,6 +1,7 @@
 package docker
 
 type Docker struct {
-	Registry Registry `json:"registry" yaml:"registry"`
-	Daemon   Daemon   `json:"daemon" yaml:"daemon"`
+	Daemon         Daemon   `json:"daemon" yaml:"daemon"`
+	Registry       Registry `json:"registry" yaml:"registry"`
+	ImageNamespace string   `json:"imageNamespace" yaml:"imageNamespace"`
 }
