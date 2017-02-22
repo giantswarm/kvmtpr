@@ -9,5 +9,5 @@ type List struct {
 	unversioned.TypeMeta `json:",inline"`
 	unversioned.ListMeta `json:"metadata,omitempty"`
 
-	Items []*CustomObject `json:"items"`
+	Items []*CustomObject `json:"items" yaml:"items"`
 }
