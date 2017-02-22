@@ -10,5 +10,6 @@ import (
 type CustomObject struct {
 	unversioned.TypeMeta `json:",inline"`
 	v1.ObjectMeta        `json:"metadata,omitempty"`
-	Spec                 Spec `json:"spec"`
+
+	Spec Spec `json:"spec" yaml:"spec"`
 }
