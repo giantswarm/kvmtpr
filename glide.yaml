@@ -5,3 +5,5 @@ import:
   subpackages:
   - pkg/api/unversioned
   - pkg/api/v1
+- package: github.com/giantswarm/clustertpr
+  version: initial
