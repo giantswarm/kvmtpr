@@ -9,5 +9,5 @@ type Kubelet struct {
 	Labels   string `json:"labels" yaml:"labels"`
 	// Port is the kubelet service port, used in the Kubernetes service definition
 	// of the worker nodes.
-	Port string `json:"port" yaml:"port"`
+	Port int `json:"port" yaml:"port"`
 }

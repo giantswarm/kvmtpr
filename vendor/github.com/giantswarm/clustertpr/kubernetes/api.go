@@ -1,5 +1,9 @@
 package kubernetes
 
+import (
+	"net"
+)
+
 type API struct {
 	// AltNames is the alternative names used to generate certificates for the
 	// Kubernetes API server.
@@ -11,8 +15,8 @@ type API struct {
 	// Domain is the API domain of the Kubernetes cluster, e.g.
 	// api.<cluster-id>.g8s.fra-1.giantswarm.io.
 	Domain       string `json:"domain" yaml:"domain"`
-	InsecurePort string `json:"insecurePort" yaml:"insecurePort"`
+	InsecurePort int    `json:"insecurePort" yaml:"insecurePort"`
 	// IP is the Kubernetes API IP, e.g. 172.31.0.1.
-	IP         string `json:"ip" yaml:"ip"`
-	SecurePort string `json:"securePort" yaml:"securePort"`
+	IP         net.IP `json:"ip" yaml:"ip"`
+	SecurePort int    `json:"securePort" yaml:"securePort"`
 }
