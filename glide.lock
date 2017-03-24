@@ -1,5 +1,5 @@
-hash: aeb59b049771eca13d5db76dfb6965309e917371f0ed11a2b3574a1e4e676fe8
-updated: 2017-02-26T01:40:42.697131801+01:00
+hash: 6626cdb9a0834eb7e95cbe58dae9da5c1952d03f2d98a7007c9aa118abaaebb3
+updated: 2017-03-24T12:06:31.089334189+01:00
 imports:
 - name: github.com/davecgh/go-spew
   version: 5215b55f46b2b919f50a1df0eaa5886afe4e3b3d
@@ -18,7 +18,7 @@ imports:
 - name: github.com/ghodss/yaml
   version: 73d445a93680fa1a78ae23a5839bad48f32ba1ee
 - name: github.com/giantswarm/clustertpr
-  version: d37272e743efe07525093b92d449f4b60102d1af
+  version: 47bae764f0a168b9dac27e274515b1a5d03eea6b
   subpackages:
   - calico
   - cloudflare
