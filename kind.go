@@ -5,5 +5,5 @@ const (
 	Kind = "Kvm"
 
 	// PluralKind is the plural TPR kind for use in resource URLs.
-	PluralKind = "Kvms"
+	PluralKind = "kvms"
 )
