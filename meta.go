@@ -1,5 +1,7 @@
 package kvmtpr
 
+// Metadata to create operatorkit TPR.
+
 const (
 	// Name represents the name of the third party resource within Kubernetes.
 	Name = "kvm.cluster.giantswarm.io"
