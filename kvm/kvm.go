@@ -19,6 +19,6 @@ type KVM struct {
 	Kubectl         kubectl.Kubectl                 `json:"kubectl" yaml:"kubectl"`
 	Masters         []node.Node                     `json:"masters" yaml:"masters"`
 	Network         network.Network                 `json:"network" yaml:"network"`
-	Workers         []node.Node                     `json:"workers" yaml:"workers"`
 	NTP             ntp.NTP                         `json:"ntp" yaml:"ntp"`
+	Workers         []node.Node                     `json:"workers" yaml:"workers"`
 }
