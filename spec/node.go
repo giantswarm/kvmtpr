@@ -1,4 +1,4 @@
-package node
+package spec
 
 type Node struct {
 	CPUs   int     `json:"cpus" yaml:"cpus"`
