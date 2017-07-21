@@ -1,5 +1,5 @@
-hash: 94848e3b4052998ddea2079584df177b3414c8420f60d059360b9f0bec01b0f6
-updated: 2017-07-21T12:03:50.556011+02:00
+hash: 5950ab3f5fbc74692dd6263f738982c25e97bc22af296efd089db12b9a207d14
+updated: 2017-07-21T15:39:30.982007628+02:00
 imports:
 - name: github.com/emicklei/go-restful
   version: 09691a3b6378b740595c1002f40c34dd5f218a22
@@ -113,6 +113,7 @@ testImports:
 - name: github.com/kylelemons/godebug
   version: a616ab194758ae0a11290d87ca46ee8c440117b0
   subpackages:
+  - diff
   - pretty
 - name: github.com/pmezard/go-difflib
   version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
@@ -122,5 +123,6 @@ testImports:
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
   subpackages:
   - assert
+  - require
 - name: gopkg.in/yaml.v2
   version: 53feefa2559fb8dfa8d81baad31be332c97d6c77

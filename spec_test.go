@@ -33,10 +33,11 @@ import (
 	endpointupdater "github.com/giantswarm/kvmtpr/spec/endpointupdater"
 	k8skvm "github.com/giantswarm/kvmtpr/spec/k8skvm"
 	"github.com/kylelemons/godebug/pretty"
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-func TestSpecYaml(t *testing.T) {
+func TestSpecYamlEncoding(t *testing.T) {
+
 	spec := Spec{
 		Cluster: clustertpr.Cluster{
 			Calico: calico.Calico{
@@ -167,19 +168,19 @@ func TestSpecYaml(t *testing.T) {
 	var got map[string]interface{}
 	{
 		bytes, err := yaml.Marshal(&spec)
-		assert.NoError(t, err, "marshaling spec")
+		require.NoError(t, err, "marshaling spec")
 		err = yaml.Unmarshal(bytes, &got)
-		assert.NoError(t, err, "unmarshaling spec to map")
+		require.NoError(t, err, "unmarshaling spec to map")
 	}
 
 	var want map[string]interface{}
 	{
 		bytes, err := ioutil.ReadFile("testdata/spec.yaml")
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		err = yaml.Unmarshal(bytes, &want)
-		assert.NoError(t, err, "unmarshaling fixture to map")
+		require.NoError(t, err, "unmarshaling fixture to map")
 	}
 
 	diff := pretty.Compare(want, got)
-	assert.Equal(t, "", diff, "diff: (-want +got)\n%s", diff)
+	require.Equal(t, "", diff, "diff: (-want +got)\n%s", diff)
 }
