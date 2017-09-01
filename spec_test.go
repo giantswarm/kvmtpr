@@ -132,7 +132,7 @@ func TestSpecYamlEncoding(t *testing.T) {
 				k8skvm.Docker{
 					Image: "quay.io/giantswarm/k8s-kvm",
 				},
-                                "hostPath",
+				"hostPath",
 			},
 			Masters: []kvm.Node{
 				{
