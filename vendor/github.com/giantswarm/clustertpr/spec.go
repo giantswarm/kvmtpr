@@ -10,6 +10,7 @@ type Spec struct {
 	Etcd       spec.Etcd       `json:"etcd" yaml:"etcd"`
 	Kubernetes spec.Kubernetes `json:"kubernetes" yaml:"kubernetes"`
 	Masters    []spec.Node     `json:"masters" yaml:"masters"`
+	Template   spec.Template   `json:"template" yaml:"template"`
 	Vault      spec.Vault      `json:"vault" yaml:"vault"`
 	Workers    []spec.Node     `json:"workers" yaml:"workers"`
 }
