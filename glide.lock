@@ -1,5 +1,5 @@
-hash: 0b1f894f8c1eccf3fd49a9b346e407243c5ccc0582364bad499d2670ed4aa004
-updated: 2017-11-21T14:44:19.929862509+01:00
+hash: 1c1b31995f13886bcd11d665c834dcce93633fd86d35bdfa31ffd5a223daa061
+updated: 2017-11-21T15:01:49.237043481+01:00
 imports:
 - name: github.com/emicklei/go-restful
   version: ff4f55a206334ef123e4f79bbf348980da81ca46
@@ -18,8 +18,6 @@ imports:
   - spec/kubernetes/ssh
 - name: github.com/giantswarm/operatorkit
   version: 0bd1c4365f66a52c233957c38367ca3a3c2a81e9
-- name: github.com/giantswarm/versionbundle
-  version: 3b7cd23ec96043f5193c1b6c966fade961f0da65
 - name: github.com/go-openapi/jsonpointer
   version: 46af16f9f7b149af66e5d1bd010e3574dc06de98
 - name: github.com/go-openapi/jsonreference
