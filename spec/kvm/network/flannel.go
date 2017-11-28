@@ -1,5 +1,5 @@
 package network
 
 type Flannel struct {
-	VNI string `json:"vni" yaml:"vni"`
+	VNI int `json:"vni" yaml:"vni"`
 }
