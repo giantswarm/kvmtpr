@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/kvmtpr.svg?&style=shield&circle-token=d7ae298ab8eeca0c8b2d990a57788a1eea97dde5)](https://circleci.com/gh/giantswarm/kvmtpr)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/kvmtpr/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/kvmtpr/tree/master)
 
 # kvmtpr
 The `kvmtpr` package provides structures for cluster resources. Cluster
